@@ -1,0 +1,138 @@
+User
+-----
+id (Primary Key)
+name
+email
+password
+role (admin / student / company)
+is_active
+created_at
+
+StudentProfile
+--------------
+id
+user_id (Foreign Key → User.id)
+branch
+cgpa
+year
+resume
+
+CompanyProfile
+--------------
+id
+user_id (Foreign Key → User.id)
+company_name
+hr_contact
+website
+approval_status (pending / approved / rejected)
+
+PlacementDrive
+--------------
+id
+company_id (Foreign Key → CompanyProfile.id)
+job_title
+job_description
+branch_required
+cgpa_required
+year_required
+application_deadline
+status (pending / approved / closed)
+
+Application
+-----------
+id
+student_id (Foreign Key → StudentProfile.id)
+drive_id (Foreign Key → PlacementDrive.id)
+application_date
+status (applied / shortlisted / selected / rejected)
+
+User
+ |\
+ | \ 
+ |  \
+StudentProfile    CompanyProfile
+      |                 |
+      |                 |
+      ------Application------
+              |
+         PlacementDrive
+
+
+
+
+
+
+User
+↳ One-to-One → StudentProfile
+↳ One-to-One → CompanyProfile
+
+CompanyProfile
+↳ One-to-Many → PlacementDrive
+
+PlacementDrive
+↳ One-to-Many → Application
+
+StudentProfile
+↳ One-to-Many → Application
+
+Draw it in:
+
+Draw.io
+
+
+
+
+
+
+                 +------------------+
+                 |       User       |
+                 +------------------+
+                 | id (PK)          |
+                 | name             |
+                 | email            |
+                 | password         |
+                 | role             |
+                 | is_active        |
+                 | created_at       |
+                 +------------------+
+                     |          |
+           (1-1)     |          | (1-1)
+                     |          |
+        +----------------+   +-------------------+
+        | StudentProfile |   |  CompanyProfile   |
+        +----------------+   +-------------------+
+        | id (PK)        |   | id (PK)           |
+        | user_id (FK)   |   | user_id (FK)      |
+        | branch         |   | company_name      |
+        | cgpa           |   | hr_contact        |
+        | year           |   | website           |
+        | resume         |   | approval_status   |
+        +----------------+   +-------------------+
+                |                         |
+                | (1-M)                   | (1-M)
+                |                         |
+                |                 +-------------------+
+                |                 |  PlacementDrive   |
+                |                 +-------------------+
+                |                 | id (PK)           |
+                |                 | company_id (FK)   |
+                |                 | job_title         |
+                |                 | job_description   |
+                |                 | branch_required   |
+                |                 | cgpa_required     |
+                |                 | year_required     |
+                |                 | deadline          |
+                |                 | status            |
+                |                 +-------------------+
+                |                          |
+                |                          | (1-M)
+                |                          |
+        +--------------------+             |
+        |     Application    |-------------+
+        +--------------------+
+        | id (PK)            |
+        | student_id (FK)    |
+        | drive_id (FK)      |
+        | application_date   |
+        | status             |
+        +--------------------+
