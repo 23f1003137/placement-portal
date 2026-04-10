@@ -27,7 +27,7 @@ db.init_app(app)                 #Isse SQLAlchemy ko pata chal jata hai:
 
 mail = Mail(app)
 
-app.register_blueprint(auth_bp, url_prefix="/auth") #Ab jo bhi route auth.py me hoga uska URL start hoga:
+app.register_blueprint(auth_bp, url_prefix="/auth") 
 app.register_blueprint(admin_bp, url_prefix="/admin")
 app.register_blueprint(company_bp,url_prefix="/company")
 app.register_blueprint(student_bp, url_prefix="/student")
