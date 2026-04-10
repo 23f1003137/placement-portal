@@ -9,7 +9,7 @@
       <button class="btn btn-primary" @click="search">Search</button>
     </div>
 
-    # Search Results 
+    <!-- Search Results  -->
     <div v-if="searchResult.students.length || searchResult.companies.length" class="mb-4">
       <h5> Students</h5>
       <ul>
@@ -25,7 +25,7 @@
       </ul>
     </div>
 
-    # Stats 
+     <!-- Stats  -->
     <div class="row mb-4">
       <div class="col-md-4">
         <div class="card text-center p-3 shadow">
@@ -52,7 +52,7 @@
     <div v-for="student in students" :key="student.id" class="card p-3 mb-2">
       <p><b>Name:</b> {{ student.name }}</p>
       <p><b>Email:</b> {{ student.email }}</p>
-      <p><b>Active:</b>
+      <p><b>Status:</b>
         <span :class="student.is_active ? 'text-success' : 'text-danger'">
           {{ student.is_active ? 'Active' : 'Inactive' }}
         </span>
@@ -66,7 +66,7 @@
     </div>
     
 
-    # Company Registrations — Pending approvals 
+    <!-- Company Registrations — Pending approvals  -->
 
     <h3 class="mt-4">Company Registrations</h3>
     <div v-if="pendingCompanies.length === 0" class="text-muted mb-3">
@@ -87,13 +87,13 @@
       </div>
     </div>
 
-    # All Companies — Activate/Deactivate 
+     <!-- All Companies — Activate/Deactivate  -->
 
     <h3 class="mt-4">All Companies</h3>
     <div v-for="company in companies" :key="company.id" class="card p-3 mb-2">
       <p><b>Name:</b> {{ company.company_name }}</p>
       <p><b>Approval:</b> {{ company.approval_status }}</p>
-      <p><b>Active:</b>
+      <p><b>Status:</b>
         <span :class="company.is_active ? 'text-success' : 'text-danger'">
           {{ company.is_active ? 'Active ' : 'Inactive ' }}
         </span>
@@ -109,6 +109,7 @@
   
     <h3 class="mt-4">Drives</h3>
     <div v-for="drive in drives" :key="drive.id" class="card p-3 mb-2">
+      <p><b>Company Name:</b> {{ drive.company_name }}</p>
       <p><b>Job:</b> {{ drive.job_title }}</p>
       <p><b>Status:</b> {{ drive.status }}</p>
 

@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    # Organizations / Companies 
+     <!-- Organizations / Companies  -->
     <h4 class="mb-3">Organizations</h4>
 
     <div v-if="companies.length === 0" class="text-muted mb-4">
@@ -22,7 +22,7 @@
 
     <div v-for="company in companies" :key="company.id" class="card shadow-sm mb-4">
 
-      # Company Header 
+      <!-- Company Header  -->
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0"> {{ company.company_name }}</h5>
         <button
@@ -33,7 +33,7 @@
         </button>
       </div>
 
-      # Company Details 
+      <!-- Company Details  -->
       <div class="card-body pb-1">
         <p class="mb-1">
           <b>Website:</b> {{ company.website }}
@@ -46,7 +46,7 @@
         </p>
       </div>
 
-       Drives List — toggle se khulta hai 
+       <!-- Drives List — toggle se khulta hai  -->
       <div v-if="openCompany === company.id" class="px-3 pb-3">
         <hr />
         <h6 class="mb-3">Available Drives</h6>

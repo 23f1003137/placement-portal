@@ -106,14 +106,16 @@ def get_drives():
 
     result = []
     for d in drives:
+        company = CompanyProfile.query.get(d.company_id)
+
         result.append({
             "id": d.id,
             "job_title": d.job_title,
-            "status": d.status
+            "status": d.status,
+            "company_name": company.company_name if company else "N/A"
         })
 
     return jsonify(result)
-
 
 
 @admin_bp.route("/stats", methods=["GET"])
@@ -231,7 +233,6 @@ def toggle_user():
 
 @admin_bp.route("/reject-company", methods=["POST"])
 def reject_company():
-
     token = request.headers.get("Authorization")
     data_token = verify_token(token)
 
@@ -249,8 +250,17 @@ def reject_company():
         return jsonify({"error": "Company not found"})
     
     company.approval_status = "rejected"
+
+    company_user = User.query.get(company.user_id)
+    if company_user:
+        company_user.is_active = False
+
     db.session.commit()
     return jsonify({"message": "Company rejected"})
+
+
+
+
 
 @admin_bp.route("/reject-drive", methods=["POST"])
 def reject_drive():

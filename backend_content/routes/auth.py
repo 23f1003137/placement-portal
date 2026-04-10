@@ -121,6 +121,14 @@ def login():
     # check active
     if not user.is_active:
         return jsonify({"error": "Account is deactivated by admin"})
+    
+    
+    if user.role == "company":
+        company = CompanyProfile.query.filter_by(user_id=user.id).first()
+        if company and company.approval_status == "rejected":
+            return jsonify({"error": "Your company registration has been rejected by admin"})
+        if company and company.approval_status == "pending":
+            return jsonify({"error": "Your company is pending approval"})
 
     
     if not check_password_hash(user.password, password):

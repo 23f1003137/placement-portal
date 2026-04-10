@@ -1,6 +1,6 @@
 <template>
   <div>
-    # navar
+    <!-- navar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
       <a class="navbar-brand" href="#">Placement Portal</a>
 

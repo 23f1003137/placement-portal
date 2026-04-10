@@ -16,7 +16,7 @@
       </li>
     </ul>
 
-    # My Drives Tab 
+     <!-- My Drives Tab  -->
     <div v-if="activeTab === 'drives'">
       <div v-if="drives.length === 0" class="text-muted">
        There is no drive — first, create a drive.
@@ -109,7 +109,7 @@
       </div>
     </div>
 
-    # Create Drive Tab 
+    <!-- Create Drive Tab  -->
     <div v-if="activeTab === 'create'">
       <div class="card p-4 shadow">
         <h3 class="mb-3">Create New Drive</h3>

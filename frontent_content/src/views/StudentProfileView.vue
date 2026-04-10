@@ -2,7 +2,7 @@
   <div class="container mt-4" style="max-width: 500px;">
     <h2 class="mb-4">My Profile</h2>
 
-    # Profile Form 
+     <!-- Profile Form  -->
     <div class="card p-4 mb-4">
       <h5 class="mb-3">Profile Details</h5>
 
@@ -23,7 +23,7 @@
       </button>
     </div>
 
-    # Resume Upload 
+     <!-- Resume Upload  -->
     <div class="card p-4">
       <h5 class="mb-3">Resume Upload</h5>
 

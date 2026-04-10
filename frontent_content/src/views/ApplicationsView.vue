@@ -24,10 +24,10 @@
       </div>
     </div>
 
-    # for Export message 
+     <!-- for Export message  -->
     <p v-if="exportMsg" class="text-info">{{ exportMsg }}</p>
 
-    # Applications Table 
+     <!-- Applications Table  -->
     <table class="table table-bordered table-hover shadow-sm">
       <thead class="table-dark">
         <tr>
@@ -52,7 +52,7 @@
       </tbody>
     </table>
 
-    # Empty state 
+     <!-- Empty state  -->
     <div v-if="applications.length === 0" class="text-center mt-4">
       <p>There is no application right now </p>
     </div>
