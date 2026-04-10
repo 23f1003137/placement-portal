@@ -21,8 +21,7 @@ app.config.from_object(Config)   # config me jitni setthing store ki hai yha use
 
 cache = Cache(app)   
 
-db.init_app(app)                 #Isse SQLAlchemy ko pata chal jata hai:
-                                 #“Ye Flask app ka database hai”.
+db.init_app(app)                
 
 
 mail = Mail(app)
@@ -54,18 +53,6 @@ def export_file(filename):
     )
 
 
-
-# @app.route('/login', methods=['POST'])
-# def login():
-#     data = request.get_json()
-#     print("Login Data:", data)
-#     return {"message": "login success"}
-
-# @app.route('/register', methods=['POST'])
-# def register():
-#     data = request.get_json()
-#     print("Register Data:", data) 
-#     return {"message": "register success"}
 
 
 if __name__ == "__main__":
